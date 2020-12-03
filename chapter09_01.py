@@ -55,3 +55,73 @@ def func_mul4(x):
     y2 = x* 20
     y3 = x* 30
     return {'v1':y1, 'v2':y2, 'v3':y3}
+
+
+# 중요
+# *args, **kwargs
+
+#*args(언팩킹)
+def args_func(*args): # 매개변수 명 자유
+    for i, v in enumerate(args):
+        print('result'.format(i), v)
+    print('<<<<<<<<<<')
+
+
+args_func('LL')
+args_func('LL','LLL')
+args_func('LL','LLL','kim')
+
+
+# **kwargs(언팩킹)
+def kwargs_func(**kwargs): #매개변수 명 자유
+    for v in kwargs.keys():
+        print('{}'.format(v), kwargs[v])
+    print('------')
+
+kwargs_func(name1='lee')
+
+kwargs_func(name1='lee',name2 = 'Park')
+kwargs_func(name1='lee',name2 = 'Park',name3='cho',sndSMS=True)
+
+# 전체 혼합
+def example(args_1,args_2,*args, **kwargs):
+    print(args_1,args_2,args,kwargs)
+
+example(10,20,'Lee','Kim','Park',age1=20,age2=30,age3=40)
+# 결과 : 10 20 ('Lee', 'Kim', 'Park') {'age1': 20, 'age2': 30, 'age3': 40}
+
+#중첩 함수
+
+def nested_func(num):
+    def func_in_func(num):
+        print(num)
+    print("In func")
+    func_in_func(num+100)
+
+nested_func(100)
+# func_in_func 은 부모 함수를 호출 하지 않고는 메모리에 정의 되지 않으므로 단독으로는 사용이 불가능하다 
+# 단독 실행 불가 
+
+# 람다의 개념
+# 람다식 예제
+# 메모리 절약, 가독성 향상, 코드 간결 
+# 함수는 객체 생성 -> 리소스(메모리) 할당
+# 람다는 즉시 실행 함수 (Heap 초기화) -> 메모리 초기화 
+# 남발시에는 가독성이 오히려 감소 
+
+
+#두개는 같은 식 
+
+def mul_func(x,y):
+    return x * y
+
+q = mul_func(10,40)
+print(q)
+print(mul_func(10,40))
+
+lambda_mul = lambda x, y: x*y
+
+def func_final(x,y,func):
+    print(x*y*func(x,y))
+
+func_final(10,20,lambda x, y: x*y)
