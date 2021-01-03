@@ -1,12 +1,13 @@
 #self의 이해
+'''
 class SelfTest():
     def func1():
         print('func1 called')
     def func2(self):
         print(id(self))
         print('func2 called')
-
-f = SelfTest()
+'''
+#f = SelfTest()
 
 #print(dir(f))
 #print(id(f))
