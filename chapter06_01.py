@@ -47,4 +47,6 @@ print(not a>b)
 print(not True) 
 
 # 산술, 관계, 논리 우선순위 
+# 산술 > 관계 > 논리
 print(3+12 > 7+3)
+print(5+10*3 < 7+3*20)
